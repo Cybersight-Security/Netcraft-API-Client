@@ -2,129 +2,110 @@
 
 # Netcraft API Client
 
-This Python script provides a command-line interface for interacting with the Netcraft API. It allows users to perform various actions such as reporting malicious URLs, malicious emails, and incorrectly blocked URLs, as well as retrieving details about submitted reports.
+![Cybersight Security Netcraft API Client](assets/logo.png)
+
+The Cybersight Security Netcraft API Client is a Python command-line interface that enables security professionals to interact with the Netcraft API for reporting and managing cybersecurity threats. This tool simplifies the process of submitting malicious URLs, emails, and incorrectly blocked sites to Netcraft's threat intelligence platform.
 
 </div>
 
-## Features
-
-- Report a single URL
-- Report multiple URLs from a file
-- Report a malicious email (with optional password for decryption)
-- Report an incorrectly blocked URL
-- Get details of a submitted report
-- Download files associated with a submitted report
-- Get URLs associated with a submitted report
-- Report an issue with a submitted report (e.g., file or URL misclassifications)
-- Get available tags for file, mail, or URL reports
+## Features:
+- Report single or multiple malicious URLs
+- Submit malicious email reports (with optional decryption support)
+- Report incorrectly blocked URLs
+- Retrieve detailed information about submitted reports
+- Download files associated with threat reports
+- Manage report classifications and tags
 - Unsubscribe from notification emails
+- Comprehensive error handling and logging
 
-<div align="center">
+**Important Note:** This tool is designed for legitimate security research and threat reporting purposes only. All submissions to Netcraft's API should comply with applicable laws and Netcraft's terms of service.
 
-## ☕ [Support my work on Ko-Fi](https://ko-fi.com/thatsinewave)
+## Data Sources
 
-</div>
+The application interacts with the following Netcraft API endpoints:
 
-## Prerequisites
+- URL submission endpoints
+- Email submission endpoints
+- Report management endpoints
+- Tag classification endpoints
+- Notification management endpoints
+
+## Technical Implementation
+
+### Core Components
+
+- **Netcraft API Client (`main.py`):**
+  - Handles all API interactions with Netcraft's services
+  - Manages authentication and session handling
+  - Processes user inputs and API responses
+  - Provides comprehensive error handling
+
+### Functionality
+
+- **Command-Line Interface:**
+  - Interactive menu-driven interface
+  - Input validation and sanitization
+  - Progress feedback and result display
+  - Configuration management
+
+- **Data Processing:**
+  - Batch processing of URL lists
+  - Email content handling
+  - Report data formatting
+  - File download management
+
+## Installation and Usage
+
+### Requirements
 
 - Python 3.x
-- `requests` library (install using `pip install requests`)
+- `requests` library
 
-<div align="center">
+### Setup Instructions
 
-# [Join my discord server](https://discord.gg/2nHHHBWNDw)
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/cybersight/netcraft-api-client.git
+   cd netcraft-api-client
+   ```
 
-</div>
+2. **Install Python dependencies:**
+   ```bash
+   pip install requests
+   ```
 
-## Usage
+3. **Run the application:**
+   ```bash
+   python main.py
+   ```
 
-1. Clone or download the repository.
-2. Navigate to the project directory.
-3. Run the script using `python main.py`.
-4. Follow the prompts in the command-line interface to perform the desired actions.
+4. **Follow the on-screen instructions:**
+   - Select the desired operation from the menu
+   - Provide required inputs when prompted
+   - View results in the console or output files
 
-Example usage:
-Then, follow the menu options and provide the required inputs.
+## Configuration
 
-## Function Documentation
+You can customize the following aspects of the application:
 
-### `report_single_url(email, message, url)`
-
-Reports a single URL to the Netcraft API.
-
-- `email`: The email address of the submitter.
-- `message`: An optional message to include with the report.
-- `url`: The URL to be reported.
-
-### `report_urls_from_file(email, message, file_path)`
-
-Reports multiple URLs from a file to the Netcraft API.
-
-- `email`: The email address of the submitter.
-- `message`: An optional message to include with the report.
-- `file_path`: The path to the file containing the URLs (one URL per line).
-
-### `report_malicious_mail(email, message, mail_content, password=None)`
-
-Reports a malicious email to the Netcraft API.
-
-- `email`: The email address of the submitter.
-- `message`: An optional message to include with the report.
-- `mail_content`: The content of the malicious email in MIME format.
-- `password`: An optional password for decrypting the email (if applicable).
-
-### `report_incorrectly_blocked_url(email, url, reason)`
-
-Reports an incorrectly blocked URL to the Netcraft API.
-
-- `email`: The email address of the submitter.
-- `url`: The URL that was incorrectly blocked.
-- `reason`: The reason for reporting the incorrectly blocked URL.
-
-### `get_submission_details(uuid)`
-
-Retrieves the details of a submitted report and saves them to a JSON file.
-
-- `uuid`: The UUID of the submitted report.
-
-### `get_submission_files(uuid)`
-
-Downloads the files associated with a submitted report.
-
-- `uuid`: The UUID of the submitted report.
-
-### `get_submission_urls(uuid)`
-
-Retrieves the URLs associated with a submitted report and saves them to a JSON file.
-
-- `uuid`: The UUID of the submitted report.
-
-### `report_submission_issue(uuid, file_misclassifications, url_misclassifications, additional_info)`
-
-Reports an issue with a submitted report, such as file or URL misclassifications.
-
-- `uuid`: The UUID of the submitted report.
-- `file_misclassifications`: A list of misclassified file names.
-- `url_misclassifications`: A list of misclassified URLs.
-- `additional_info`: Additional information about the issue.
-
-### `get_available_tags(tag_type)`
-
-Retrieves the available tags for file, mail, or URL reports.
-
-- `tag_type`: The type of tags to retrieve ('file', 'mail', or 'url').
-
-### `unsubscribe_from_notifications(email, csrf_token)`
-
-Unsubscribes the provided email address from notification emails.
-
-- `email`: The email address to unsubscribe.
-- `csrf_token`: The CSRF token required for unsubscribing.
-
-## Contributing
-
-Contributions are welcome! If you find any issues or have suggestions for improvements, please open an issue or submit a pull request.
+- **API Settings:** Modify default endpoints in the source code
+- **Output Locations:** Change where report data is saved
+- **Logging:** Adjust verbosity and log file locations
+- **User Preferences:** Set default values for frequently used parameters
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the GNU General Public License (GPL). This means you are free to:
+
+- Use the software for any purpose
+- Study how the software works and modify it
+- Distribute copies
+- Distribute modified versions
+
+The full license text is included in the repository.
+
+## About Cybersight Security
+
+Cybersight Security is a leading provider of cybersecurity solutions, helping organizations protect their digital assets against evolving threats. Our Netcraft API Client is part of our commitment to security automation and threat intelligence sharing.
+
+**Disclaimer:** This tool is for legitimate security research purposes only. Users are responsible for ensuring their usage complies with Netcraft's terms of service and all applicable laws. Cybersight Security makes no warranties about the completeness or accuracy of the data processed through this interface.
